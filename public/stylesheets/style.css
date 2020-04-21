@@ -1,0 +1,23 @@
+body {
+  background-color: #CCD8E3;
+  color: #3C5163;
+  padding: 25px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border: .5rem solid #5A5F63;
+  border-radius: .25rem;
+}
+
+li {
+  list-style: none;
+  padding: 5px;
+}
+
+a {
+  font-size: 1.5rem;
+  color: #3C5163;
+}
+
+a.hover {
+  color: #8BBCE8;
+  text-decoration: none;
+}
