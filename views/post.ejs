@@ -1,15 +1,15 @@
 <% include partials/head %>
 
-<main>
-    <article>
-        <h1><%= post.title %></h1>
-        <div>
-            <%- post.postContent %>
-        </div>
-    </article>
-</main>
-<br>
-<button type="button" id="editPost" name="editPost">Edit Post</button>
-<br></br>
+    <main>
+        <article>
+            <h1>
+                <%= post.title %>
+            </h1>
+            <div>
+                <%- post.postContent %>
+            </div>
+        </article>
+    </main>
+    <br>
 
-<% include partials/foot %>
+    <% include partials/foot %>
