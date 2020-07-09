@@ -1,29 +1,30 @@
 <% include partials/head %>
 
-<form action="/newpost" method="POST">
+<form action="/edit" method="POST">
 
     <div>
         <label for="title">Title</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="title" name="title" value="<%= title %>">
     </div>
     <div>
         <label for="permalink">Permalink</label>
-        <input type="text" id="permalink" name="permalink">
+        <input type="text" id="permalink" name="permalink" value="<%= permalink %>">
     </div>
     <div>
         <label for="author">Author</label>
-        <input type="text" id="author" name="author">
+        <input type="text" id="author" name="author" value="<%= author %>">
     </div>
     <div>
         <label for="postContent">Post Content</label>
-        <textarea id="postContent" name="postContent" rows="20"></textarea>
+        <textarea id="postContent" name="postContent" rows="20"><%= content %></textarea>
     </div>
     <div>
         <label for="passphrase">Passphrase</label>
         <input type="password" id="passphrase" name="passphrase">
     </div>
-
-    <button type="submit">Save Post</button>
+    <input type="hidden" id="postID" name="id" value="<%= id % %>">
+    <button type="submit">Update Post</button>
+    <button type="reset"><a href="/">Cancel</a></button>
 </form>
 
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>

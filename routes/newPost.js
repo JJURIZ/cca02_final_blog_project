@@ -9,6 +9,7 @@ router.get("/", (req, res, next)=> {
 
 // POST receives the data from the user about the new post. 
 router.post("/", (req, res, next) => {
+    if(req.body.passphrase === "LILYBOOTS"){
     let newPost = {};
 
     newPost.title = req.body.title;
@@ -17,6 +18,7 @@ router.post("/", (req, res, next) => {
     newPost.author = req.body.author;
 
     repo.addPost(newPost);
+    }
 
     res.redirect("/");
 });

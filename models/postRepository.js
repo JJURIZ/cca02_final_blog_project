@@ -3,11 +3,33 @@ const fs = require('fs'),
     filePath = path.join(__dirname, "data"),
     fileName = path.join(filePath, "postData.json");
 
-let postList = [{ permalink: "post-1", title: "Post 1", postContent: "<h1>This is my first post</h1>", author: "Jeremy U" },
-{ permalink: "post-2", title: "Post 2", postContent: "<h1>This is my second post</h1>", author: "Jeremy U" }
-];
+let postList = [];
 
-//TODO load the array from the filesystem when this thing is initially loaded. 
+let loadPosts = () => {
+    fs.readFile(fileName, "utf8", (err, data) => {
+        if (err) {
+            console.error("Error loading data file: " + err.message)
+        } else {
+            let newPostArr = JSON.parse(data);
+            if (newPostArr.length > 0) {
+                postList = newPostArr;
+            }
+        }
+    });
+}
+
+let savePosts = () => {
+    fs.writeFile(fileName, JSON.stringify(postList), (err) => {
+        if (err) {
+            console.error("Error writing the file." + err.message);
+            throw err;
+        } else {
+            console.log("The file has been saved");
+        }
+    });
+}
+
+loadPosts();
 
 let repo = {
     dataSource: "Filesystem",
@@ -25,10 +47,37 @@ let repo = {
         });
     },
 
+    getPostIndex: (permalink) => {
+        return posts.findIndex((post) => {
+            return post.permalink === permalink;
+        });
+    },
+
     addPost: (newPost) => {
         postList.push(newPost);
+        savePosts();
         //TODO: Save the list to the filesystem
+    },
+
+    deletePost: (index) => {
+        posts.splice(index, 1);
+        savePosts();
+    },
+
+    updatePost: (index, update) => {
+        posts[index] = update;
+        savePosts();
     }
+    
+    //Ability to Edit Post
+    // On post screen, display Edit button. --DONE
+    // When clicked, display post in "newPost" view. 
+    // Screen should load with that posts's data in place.
+    // Validation - If current permalink === permalink, allow edit(?)
+    // Once complete rules identical to newPost with passphrase required to save. 
+    // Save changes to post data. 
+
+    //Ability to Delete Posts
 };
 
 module.exports = repo;
