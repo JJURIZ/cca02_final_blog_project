@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+let port = process.env.PORT || 3000;
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -12,6 +13,7 @@ var newPostRouter = require('./routes/newpost');
 var editPostRouter = require('./routes/edit');
 
 var app = express();
+app.listen(port, ()=> console.log("server is running on port" + port));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
