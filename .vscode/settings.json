@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "appService.defaultWebAppToDeploy": "/subscriptions/5a323862-b62f-468c-a8d0-5ff550462862/resourceGroups/cca02-finalBlogProject/providers/Microsoft.Web/sites/cca02-finalBlogProject",
+    "appService.deploySubpath": "."
 }

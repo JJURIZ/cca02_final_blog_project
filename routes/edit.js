@@ -14,15 +14,4 @@ router.get('/:permalink', (req, res, next) => {
         return;
     });
 
-        // let udpatePost = {};
-        // udpatePost.title = req.body.title;
-        // udpatePost.permalink = req.body.permalink;
-        // udpatePost.postContent = req.body.postContent;
-        // udpatePost.author = req.body.author;
-        // udpatePost.id = req.body.id;
-
-        // repo.updatePost(updatePost);
-
-        // res.redirect('/');
-
 module.exports = router;
